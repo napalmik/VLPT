@@ -45,6 +45,308 @@ interface ReportItem {
   createdAt: string;
 }
 
+interface SpecialtyRow {
+  code: string;
+  title: string;
+  course1: string;
+  course2: string;
+  course3: string;
+  course4: string;
+  course5: string;
+}
+
+const INITIAL_SPECIALTIES_FROM_TABLE: SpecialtyRow[] = [
+  {
+    code: "15.02.09",
+    title: "Аддитивные технологии",
+    course1: "АДТ-5",
+    course2: "АДТ-4",
+    course3: "АДТ-3",
+    course4: "АДТ-2",
+    course5: "-"
+  },
+  {
+    code: "11.02.15",
+    title: "Инфокоммуникационные сети и системы связи",
+    course1: "ИКС-9",
+    course2: "ИКС-8",
+    course3: "ИКС-7",
+    course4: "ИКС-6",
+    course5: "ИКС-5"
+  },
+  {
+    code: "11.02.16",
+    title: "Монтаж, техническое обслуживание и ремонт электронных приборов и устройств",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "ЭПУ-5",
+    course5: "-"
+  },
+  {
+    code: "13.02.01",
+    title: "Тепловые электрические станции",
+    course1: "ТЭС-3",
+    course2: "ТЭС-2",
+    course3: "ТЭС-1",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "13.02.06",
+    title: "Релейная защита и автоматизация электроэнергетических систем",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "РЗА-1",
+    course5: "-"
+  },
+  {
+    code: "13.02.07",
+    title: "Электроснабжение (по отраслям)",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "ЭС-2",
+    course5: "-"
+  },
+  {
+    code: "13.02.11",
+    title:
+      "Техническая эксплуатация и обслуживание электрического и электромеханического оборудования (по отраслям)",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "13.02.12",
+    title: "Электрические станции, сети, их релейная защита и автоматизация",
+    course1: "-",
+    course2: "ЭСА-2",
+    course3: "ЭСА-1",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "13.02.13",
+    title:
+      "Эксплуатация и обслуживание электрического и электромеханического оборудования (по отраслям)",
+    course1: "ЭМО-6, ЭМО-7",
+    course2: "ЭМО-3, ЭМО-4, ЭМО-5",
+    course3: "ЭМО-1, ЭМО-2",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "13.02.13",
+    title:
+      "Эксплуатация и обслуживание электрического и электромеханического оборудования (по отраслям)",
+    course1: "ЭМО-8",
+    course2: "-",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "15.02.14",
+    title:
+      "Оснащение средствами автоматизации технологических процессов и производств (по отраслям)",
+    course1: "-",
+    course2: "-",
+    course3: "ОСП-10",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "15.02.14",
+    title:
+      "Оснащение средствами автоматизации технологических процессов и производств (по отраслям)",
+    course1: "-",
+    course2: "-",
+    course3: "ОСП-11, ОСП-13, ОСП-12",
+    course4: "ОСП-9",
+    course5: "-"
+  },
+  {
+    code: "27.02.04",
+    title: "Автоматические системы управления",
+    course1: "АСУ-8, АСУ-9",
+    course2: "АСУ-5, АСУ-6",
+    course3: "АСУ-4",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "27.02.04",
+    title: "Автоматические системы управления",
+    course1: "АСУ-10",
+    course2: "АСУ-7",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "09.02.01",
+    title: "Компьютерные системы и комплексы",
+    course1: "ЭВТ-77",
+    course2: "ЭВТ-76",
+    course3: "ЭВТ-75",
+    course4: "ЭВТ-74",
+    course5: "-"
+  },
+  {
+    code: "18.02.07",
+    title: "Технология производства и переработки пластических масс и эластомеров",
+    course1: "ПМП-62",
+    course2: "ПМП-61",
+    course3: "ПМП-60",
+    course4: "ПМП-59",
+    course5: "-"
+  },
+  {
+    code: "18.02.06",
+    title: "Химическая технология органических веществ",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "ХТО-2",
+    course5: "-"
+  },
+  {
+    code: "18.02.14",
+    title: "Химическая технология производства химических соединений",
+    course1: "ТПО-3",
+    course2: "ТПН-2, ТПО-2",
+    course3: "ТПН-1, ТПО-1",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "20.02.01",
+    title: "Экологическая безопасность природных комплексов",
+    course1: "ЭКБ-4",
+    course2: "-",
+    course3: "ЭКБ-3",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "38.02.01",
+    title: "Экономика и бухгалтерский учет (по отраслям)",
+    course1: "Б-107",
+    course2: "Б-104",
+    course3: "Б-101",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "21.02.17",
+    title: "Подземная разработка месторождений полезных ископаемых",
+    course1: "РПИ-6, РПИ-7",
+    course2: "РПИ-4, РПИ-5",
+    course3: "РПИ-3",
+    course4: "РПИ-2",
+    course5: "-"
+  },
+  {
+    code: "09.02.06",
+    title: "Сетевое и системное администрирование",
+    course1: "ССА-8",
+    course2: "ССА-7",
+    course3: "ССА-6",
+    course4: "ССА-5",
+    course5: "-"
+  },
+  {
+    code: "09.02.07",
+    title: "Информационные системы и программирование",
+    course1: "ИСП-11, ИСП-12",
+    course2: "ИСП-10",
+    course3: "-",
+    course4: "ИСП-9",
+    course5: "-"
+  },
+  {
+    code: "21.02.18",
+    title: "Обогащение полезных ископаемых",
+    course1: "ОПИ-2",
+    course2: "ОПИ-1",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "23.02.07",
+    title: "Техническое обслуживание и ремонт двигателей, систем и агрегатов автомобилей",
+    course1: "-",
+    course2: "-",
+    course3: "ТОА-12",
+    course4: "ТОА-9",
+    course5: "-"
+  },
+  {
+    code: "23.02.07",
+    title: "Техническое обслуживание и ремонт автотранспортных средств",
+    course1: "РАТ-6",
+    course2: "РАТ-3",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "38.02.01",
+    title: "Экономика и бухгалтерский учет(по отраслям)",
+    course1: "Б-108",
+    course2: "Б-105, Б-106",
+    course3: "Б-102, Б-103",
+    course4: "-",
+    course5: "-"
+  },
+  {
+    code: "15.02.12",
+    title: "Монтаж, техническое обслуживание и ремонт промышленного оборудования(по отраслям)",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "МРО-6",
+    course5: "-"
+  },
+  {
+    code: "22.02.01",
+    title: "Металлургия черных металлов",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "МЧМ-3",
+    course5: "-"
+  },
+  {
+    code: "22.02.05",
+    title: "Обработка металлов давлением",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "ОМД-9",
+    course5: "-"
+  },
+  {
+    code: "22.02.08",
+    title: "Металлургическое производство (по видам производства)",
+    course1: "-",
+    course2: "-",
+    course3: "-",
+    course4: "-",
+    course5: "-"
+  }
+];
+const SPECIALTIES_STORAGE_KEY = "vpi_specialties_data_v1";
+const SUBJECT_TEACHER_ASSIGNMENTS_KEY = "vpi_subject_teacher_assignments_v1";
+const REPLACEMENT_ASSIGNMENTS_KEY = "vpi_replacement_assignments_v1";
+const TEACHER_REPLACEMENT_DEFAULTS_KEY = "vpi_teacher_replacement_defaults_v1";
+const REPLACEMENT_STATS_SNAPSHOT_KEY = "vpi_replacement_stats_snapshot_v1";
+
 const App: React.FC = () => {
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("teacher@example.com");
@@ -114,15 +416,76 @@ const App: React.FC = () => {
   const [teacherCardRoomNumber, setTeacherCardRoomNumber] = useState("");
   const [editingTeacherId, setEditingTeacherId] = useState<number | null>(null);
   const [selectedGroupId, setSelectedGroupId] = useState<number | null>(null);
+  const [scheduleSelectedGroupId, setScheduleSelectedGroupId] = useState<number | null>(null);
   const [selectedGroupIds, setSelectedGroupIds] = useState<number[]>([]);
   const [lastSelectedGroupIndex, setLastSelectedGroupIndex] = useState<number | null>(null);
   const [subjectsLoading, setSubjectsLoading] = useState(false);
   const [subjectsError, setSubjectsError] = useState<string | null>(null);
   const [newSubjectName, setNewSubjectName] = useState("");
+  const [subjectTeacherAssignments, setSubjectTeacherAssignments] = useState<
+    Record<number, { subgroup1TeacherId: number | null; subgroup2TeacherId: number | null }>
+  >(() => {
+    try {
+      const raw = localStorage.getItem(SUBJECT_TEACHER_ASSIGNMENTS_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw) as Record<
+        number,
+        { subgroup1TeacherId: number | null; subgroup2TeacherId: number | null }
+      >;
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const [savedSubjectTeacherAssignments, setSavedSubjectTeacherAssignments] = useState<
+    Record<number, { subgroup1TeacherId: number | null; subgroup2TeacherId: number | null }>
+  >(() => {
+    try {
+      const raw = localStorage.getItem(SUBJECT_TEACHER_ASSIGNMENTS_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw) as Record<
+        number,
+        { subgroup1TeacherId: number | null; subgroup2TeacherId: number | null }
+      >;
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const [subjectAssignmentsDirty, setSubjectAssignmentsDirty] = useState(false);
+  const [subjectAssignmentsSaving, setSubjectAssignmentsSaving] = useState(false);
+  const [subjectAssignmentsMessage, setSubjectAssignmentsMessage] = useState<string | null>(null);
   const [isGroupModalOpen, setIsGroupModalOpen] = useState(false);
   const [groupModalName, setGroupModalName] = useState("");
   const [isGroupEditModalOpen, setIsGroupEditModalOpen] = useState(false);
   const [groupEditModalName, setGroupEditModalName] = useState("");
+  const getInitialSpecialtiesData = (): SpecialtyRow[] => {
+    try {
+      const raw = localStorage.getItem(SPECIALTIES_STORAGE_KEY);
+      if (!raw) return INITIAL_SPECIALTIES_FROM_TABLE;
+      const parsed = JSON.parse(raw) as SpecialtyRow[];
+      if (
+        !Array.isArray(parsed) ||
+        parsed.length === 0 ||
+        parsed.length < INITIAL_SPECIALTIES_FROM_TABLE.length
+      ) {
+        return INITIAL_SPECIALTIES_FROM_TABLE;
+      }
+      return parsed;
+    } catch {
+      return INITIAL_SPECIALTIES_FROM_TABLE;
+    }
+  };
+  const [specialtiesData, setSpecialtiesData] = useState<SpecialtyRow[]>(() =>
+    getInitialSpecialtiesData()
+  );
+  const [savedSpecialtiesData, setSavedSpecialtiesData] = useState<SpecialtyRow[]>(() =>
+    getInitialSpecialtiesData()
+  );
+  const [selectedSpecialtyIndex, setSelectedSpecialtyIndex] = useState<number>(0);
+  const [specialtiesDirty, setSpecialtiesDirty] = useState(false);
+  const [specialtiesSaving, setSpecialtiesSaving] = useState(false);
+  const [specialtiesMessage, setSpecialtiesMessage] = useState<string | null>(null);
   const [reports, setReports] = useState<ReportItem[]>([]);
   const [reportsLoading, setReportsLoading] = useState(false);
   const [reportsError, setReportsError] = useState<string | null>(null);
@@ -130,6 +493,31 @@ const App: React.FC = () => {
   const [slotDrafts, setSlotDrafts] = useState<
     Record<string, { subjectId: number | null; teacherId: number | null }>
   >({});
+  const [replacementTeacherBySlot, setReplacementTeacherBySlot] = useState<
+    Record<string, number | null>
+  >(() => {
+    try {
+      const raw = localStorage.getItem(REPLACEMENT_ASSIGNMENTS_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw) as Record<string, number | null>;
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const [teacherReplacementDefaults, setTeacherReplacementDefaults] = useState<
+    Record<number, number | null>
+  >(() => {
+    try {
+      const raw = localStorage.getItem(TEACHER_REPLACEMENT_DEFAULTS_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw) as Record<number, number | null>;
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
+  const [isReplacementStatsModalOpen, setIsReplacementStatsModalOpen] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -139,11 +527,108 @@ const App: React.FC = () => {
     }
   }, [token]);
 
+  const inferredSubjectIdByTeacher = useMemo(() => {
+    const map = new Map<number, number>();
+    for (const subject of subjects) {
+      const assignment = subjectTeacherAssignments[subject.id];
+      if (!assignment) continue;
+      if (assignment.subgroup1TeacherId && !map.has(assignment.subgroup1TeacherId)) {
+        map.set(assignment.subgroup1TeacherId, subject.id);
+      }
+      if (assignment.subgroup2TeacherId && !map.has(assignment.subgroup2TeacherId)) {
+        map.set(assignment.subgroup2TeacherId, subject.id);
+      }
+    }
+    return map;
+  }, [subjectTeacherAssignments, subjects]);
+
+  const subjectsById = useMemo(() => {
+    const map = new Map<number, string>();
+    for (const subject of subjects) {
+      map.set(subject.id, subject.name);
+    }
+    return map;
+  }, [subjects]);
+
+  const pairTimes = ["08:00:00", "09:50:00", "11:40:00", "13:30:00", "15:20:00", "17:10:00", "19:00:00"];
+  const slotKey = (date: string, groupId: number, pairIdx: number) =>
+    `${date}|${groupId}|${pairIdx}`;
+
   useEffect(() => {
     const selectedFromList = teachersList.find((t) => t.id === selectedTeacherId) ?? null;
-    setTeacherCardSubjectId(selectedFromList?.subjectId ?? null);
+    const inferredSubjectId =
+      selectedTeacherId !== null ? inferredSubjectIdByTeacher.get(selectedTeacherId) ?? null : null;
+    setTeacherCardSubjectId(selectedFromList?.subjectId ?? inferredSubjectId ?? null);
     setTeacherCardRoomNumber(selectedFromList?.roomNumber ?? "");
-  }, [selectedTeacherId, teachersList]);
+  }, [selectedTeacherId, teachersList, inferredSubjectIdByTeacher]);
+
+  useEffect(() => {
+    if (specialtiesData.length === 0) {
+      setSelectedSpecialtyIndex(0);
+      return;
+    }
+    if (selectedSpecialtyIndex < 0 || selectedSpecialtyIndex >= specialtiesData.length) {
+      setSelectedSpecialtyIndex(0);
+    }
+  }, [specialtiesData, selectedSpecialtyIndex]);
+
+  useEffect(() => {
+    if (groups.length === 0) {
+      setScheduleSelectedGroupId(null);
+      return;
+    }
+    if (
+      scheduleSelectedGroupId === null ||
+      !groups.some((group) => group.id === scheduleSelectedGroupId)
+    ) {
+      setScheduleSelectedGroupId(groups[0].id);
+    }
+  }, [groups, scheduleSelectedGroupId]);
+
+  useEffect(() => {
+    localStorage.setItem(REPLACEMENT_ASSIGNMENTS_KEY, JSON.stringify(replacementTeacherBySlot));
+  }, [replacementTeacherBySlot]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      TEACHER_REPLACEMENT_DEFAULTS_KEY,
+      JSON.stringify(teacherReplacementDefaults)
+    );
+  }, [teacherReplacementDefaults]);
+
+  useEffect(() => {
+    const statsSnapshot: Record<
+      number,
+      { replacementHours: number; groups: string[]; subjects: string[] }
+    > = {};
+    for (const item of schedule) {
+      const pairIdx = pairTimes.findIndex((time) => time === item.time.slice(0, 8));
+      if (pairIdx < 0) continue;
+      const currentSlotKey = slotKey(item.date.slice(0, 10), item.group_id, pairIdx);
+      const replacementTeacherId = Object.prototype.hasOwnProperty.call(
+        replacementTeacherBySlot,
+        currentSlotKey
+      )
+        ? replacementTeacherBySlot[currentSlotKey] ?? null
+        : null;
+      if (!replacementTeacherId) continue;
+      if (!statsSnapshot[replacementTeacherId]) {
+        statsSnapshot[replacementTeacherId] = {
+          replacementHours: 0,
+          groups: [],
+          subjects: []
+        };
+      }
+      statsSnapshot[replacementTeacherId].replacementHours += 2;
+      if (!statsSnapshot[replacementTeacherId].groups.includes(item.group_name)) {
+        statsSnapshot[replacementTeacherId].groups.push(item.group_name);
+      }
+      if (!statsSnapshot[replacementTeacherId].subjects.includes(item.subject_name)) {
+        statsSnapshot[replacementTeacherId].subjects.push(item.subject_name);
+      }
+    }
+    localStorage.setItem(REPLACEMENT_STATS_SNAPSHOT_KEY, JSON.stringify(statsSnapshot));
+  }, [schedule, replacementTeacherBySlot]);
 
   const formatDate = (d: Date) => d.toISOString().slice(0, 10);
   const formatDateRu = (d: Date) => {
@@ -152,10 +637,6 @@ const App: React.FC = () => {
     const yy = String(d.getFullYear()).slice(-2);
     return `${dd}.${mm}.${yy}`;
   };
-  const pairTimes = ["08:00:00", "09:50:00", "11:40:00", "13:30:00", "15:20:00", "17:10:00", "19:00:00"];
-
-  const slotKey = (date: string, groupId: number, pairIdx: number) =>
-    `${date}|${groupId}|${pairIdx}`;
 
   const sortedTeachersList = useMemo(
     () =>
@@ -170,6 +651,14 @@ const App: React.FC = () => {
     if (!query) return sortedTeachersList;
     return sortedTeachersList.filter((t) => t.name.toLowerCase().includes(query));
   }, [sortedTeachersList, teacherSearch]);
+
+  const teachersById = useMemo(() => {
+    const map = new Map<number, Teacher>();
+    for (const item of sortedTeachersList) {
+      map.set(item.id, item);
+    }
+    return map;
+  }, [sortedTeachersList]);
 
   const scheduleIndex = useMemo(() => {
     const map = new Map<string, ScheduleItem>();
@@ -205,6 +694,10 @@ const App: React.FC = () => {
       setSubjectsError(null);
       const res = await axios.get<Subject[]>("/api/subjects");
       setSubjects(res.data);
+      if (res.data.length > 0 && !selectedSubjectId) {
+        setSelectedSubjectId(res.data[0].id);
+        setSelectedSubjectIds((prev) => (prev.length > 0 ? prev : [res.data[0].id]));
+      }
     } catch (err: any) {
       console.error(err);
       setSubjectsError("Не удалось загрузить список предметов");
@@ -266,9 +759,26 @@ const App: React.FC = () => {
       setProfileSubjectId(p.subjectId ?? null);
       setProfileAccessLevel(p.accessLevel);
       setProfileWorkload((p.workloadHours ?? 0).toString());
-      setGroups(groupsRes.data);
-      if (!selectedGroupId && groupsRes.data.length > 0) {
-        setSelectedGroupId(groupsRes.data[0].id);
+      const normalizeName = (value: string) => value.trim().toLowerCase();
+      const allowedGroupNames = new Set(specialtiesData.map((item) => normalizeName(item.title)));
+      for (const existingGroup of groupsRes.data) {
+        if (!allowedGroupNames.has(normalizeName(existingGroup.name))) {
+          await axios.delete(`/api/groups/${existingGroup.id}`);
+        }
+      }
+      const refreshedGroupsRes = await axios.get<Group[]>("/api/groups");
+      const existingRefreshedNames = new Set(
+        refreshedGroupsRes.data.map((group) => normalizeName(group.name))
+      );
+      for (const specialty of specialtiesData) {
+        if (!existingRefreshedNames.has(normalizeName(specialty.title))) {
+          await axios.post("/api/groups", { name: specialty.title });
+        }
+      }
+      const finalGroupsRes = await axios.get<Group[]>("/api/groups");
+      setGroups(finalGroupsRes.data);
+      if (!selectedGroupId && finalGroupsRes.data.length > 0) {
+        setSelectedGroupId(finalGroupsRes.data[0].id);
       }
       await Promise.all([
         loadTeachers(tokenOverride),
@@ -623,11 +1133,252 @@ const App: React.FC = () => {
 
   if (token && teacher) {
     const groupsList = groups;
+    const selectedSpecialty = specialtiesData[selectedSpecialtyIndex] ?? specialtiesData[0] ?? null;
+    const updateSelectedSpecialtyField = (
+      field: keyof Pick<SpecialtyRow, "code" | "title" | "course1" | "course2" | "course3" | "course4" | "course5">,
+      value: string
+    ) => {
+      const normalizedValue = value;
+      setSpecialtiesData((prev) =>
+        prev.map((item, idx) =>
+          idx === selectedSpecialtyIndex ? { ...item, [field]: normalizedValue } : item
+        )
+      );
+      setSpecialtiesDirty(true);
+      setSpecialtiesMessage(null);
+    };
+    const handleSaveSpecialties = async () => {
+      try {
+        setSpecialtiesSaving(true);
+        setSpecialtiesMessage(null);
+        localStorage.setItem(SPECIALTIES_STORAGE_KEY, JSON.stringify(specialtiesData));
+        await loadProfile();
+        setSavedSpecialtiesData(specialtiesData);
+        setSpecialtiesDirty(false);
+        setSpecialtiesMessage("Изменения сохранены");
+      } catch (error) {
+        console.error(error);
+        setSpecialtiesMessage("Не удалось сохранить изменения");
+      } finally {
+        setSpecialtiesSaving(false);
+      }
+    };
+    const handleCancelSpecialtiesEdit = () => {
+      setSpecialtiesData(savedSpecialtiesData);
+      setSpecialtiesDirty(false);
+      setSpecialtiesMessage("Изменения отменены");
+    };
 
     const selectedTeacher =
       sortedTeachersList.find((t) => t.id === selectedTeacherId) ?? sortedTeachersList[0] ?? teacher;
     const selectedGroup =
       groupsList.find((g) => g.id === selectedGroupId) ?? groupsList[0] ?? null;
+    const selectedScheduleGroup =
+      groupsList.find((g) => g.id === scheduleSelectedGroupId) ?? groupsList[0] ?? null;
+    const scheduleGroupsToRender = selectedScheduleGroup ? [selectedScheduleGroup] : [];
+    const selectedSubjectCard =
+      subjects.find((s) => s.id === selectedSubjectId) ?? subjects[0] ?? null;
+    const selectedSubjectAssignment = selectedSubjectCard
+      ? subjectTeacherAssignments[selectedSubjectCard.id] ?? {
+          subgroup1TeacherId: null,
+          subgroup2TeacherId: null
+        }
+      : { subgroup1TeacherId: null, subgroup2TeacherId: null };
+    const getReplacementTeacherIdForSlot = (slot: string) => {
+      if (Object.prototype.hasOwnProperty.call(replacementTeacherBySlot, slot)) {
+        return replacementTeacherBySlot[slot] ?? null;
+      }
+      return null;
+    };
+    const replacementStatsEntries = schedule
+      .map((item) => {
+        const pairIdx = pairTimes.findIndex((time) => time === item.time.slice(0, 8));
+        if (pairIdx < 0) return null;
+        const dateStr = item.date.slice(0, 10);
+        const currentSlotKey = slotKey(dateStr, item.group_id, pairIdx);
+        const replacementTeacherId = getReplacementTeacherIdForSlot(currentSlotKey);
+        if (!replacementTeacherId || replacementTeacherId !== selectedTeacher.id) return null;
+        return {
+          slotKey: currentSlotKey,
+          date: dateStr,
+          pairNumber: pairIdx + 1,
+          groupName: item.group_name,
+          subjectName: item.subject_name,
+          baseTeacherName: item.teacher_name,
+          hours: 2
+        };
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+    const replacementHoursTotal = replacementStatsEntries.reduce(
+      (sum, item) => sum + item.hours,
+      0
+    );
+    const replacementHoursDeductedFromSelectedTeacher = schedule.reduce((sum, item) => {
+      if (item.teacher_id !== selectedTeacher.id) return sum;
+      const pairIdx = pairTimes.findIndex((time) => time === item.time.slice(0, 8));
+      if (pairIdx < 0) return sum;
+      const dateStr = item.date.slice(0, 10);
+      const currentSlotKey = slotKey(dateStr, item.group_id, pairIdx);
+      const replacementTeacherId = getReplacementTeacherIdForSlot(currentSlotKey);
+      if (!replacementTeacherId || replacementTeacherId === item.teacher_id) return sum;
+      return sum + 2;
+    }, 0);
+    const adjustedTeacherWorkloadHours = Math.max(
+      0,
+      Number(selectedTeacher.workloadHours ?? 0) - replacementHoursDeductedFromSelectedTeacher
+    );
+    const replacementGroups = Array.from(
+      new Set(replacementStatsEntries.map((item) => item.groupName))
+    );
+    const replacementSubjects = Array.from(
+      new Set(replacementStatsEntries.map((item) => item.subjectName))
+    );
+    const replacementStatsSummaryRows = Array.from(
+      replacementStatsEntries.reduce((acc, entry) => {
+        const summaryKey = `${entry.date}|${entry.groupName}|${entry.subjectName}|${entry.baseTeacherName}`;
+        const current = acc.get(summaryKey);
+        if (current) {
+          current.pairCount += 1;
+          current.hours += 2;
+          return acc;
+        }
+        acc.set(summaryKey, {
+          summaryKey,
+          date: entry.date,
+          groupName: entry.groupName,
+          subjectName: entry.subjectName,
+          baseTeacherName: entry.baseTeacherName,
+          pairCount: 1,
+          hours: 2
+        });
+        return acc;
+      }, new Map<
+        string,
+        {
+          summaryKey: string;
+          date: string;
+          groupName: string;
+          subjectName: string;
+          baseTeacherName: string;
+          pairCount: number;
+          hours: number;
+        }
+      >()).values()
+    );
+    const handleExportReplacementStatsCsv = () => {
+      if (replacementStatsSummaryRows.length === 0) {
+        alert("Нет данных для экспорта.");
+        return;
+      }
+      const escapeCell = (value: string | number) => `"${String(value).replace(/"/g, '""')}"`;
+      const toRow = (values: Array<string | number>) => values.map(escapeCell).join(";");
+      const header = toRow([
+        "Дата",
+        "Количество пар",
+        "Группа",
+        "Предмет",
+        "Кого замещает",
+        "Часы замещения"
+      ]);
+      const rows = replacementStatsSummaryRows.map((entry) =>
+        toRow([
+          entry.date,
+          entry.pairCount,
+          entry.groupName,
+          entry.subjectName,
+          entry.baseTeacherName,
+          entry.hours
+        ])
+      );
+      const summaryRows = [
+        "",
+        toRow(["Преподаватель", selectedTeacher.name]),
+        toRow(["Сумма часов замещения", replacementHoursTotal.toFixed(1)]),
+        toRow(["Группы", replacementGroups.join(", ")]),
+        toRow(["Предметы", replacementSubjects.join(", ")])
+      ];
+      const csvContent = [header, ...rows, ...summaryRows].join("\n");
+      const fileNameSafeTeacher = selectedTeacher.name.replace(/[^\w\u0400-\u04FF.-]+/g, "_");
+      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+      const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `replacement-stats-${fileNameSafeTeacher}-${timestamp}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+    const handleExportReplacementStatsXlsx = async () => {
+      if (replacementStatsSummaryRows.length === 0) {
+        alert("Нет данных для экспорта.");
+        return;
+      }
+      const XLSX = await import("xlsx");
+      const detailsSheetData = replacementStatsSummaryRows.map((entry) => ({
+        "Дата": entry.date,
+        "Количество пар": entry.pairCount,
+        "Группа": entry.groupName,
+        "Предмет": entry.subjectName,
+        "Кого замещает": entry.baseTeacherName,
+        "Часы замещения": entry.hours
+      }));
+      const summarySheetData = [
+        { "Показатель": "Преподаватель", "Значение": selectedTeacher.name },
+        { "Показатель": "Сумма часов замещения", "Значение": replacementHoursTotal.toFixed(1) },
+        { "Показатель": "Группы", "Значение": replacementGroups.join(", ") || "Нет данных" },
+        { "Показатель": "Предметы", "Значение": replacementSubjects.join(", ") || "Нет данных" }
+      ];
+      const workbook = XLSX.utils.book_new();
+      const detailsWorksheet = XLSX.utils.json_to_sheet(detailsSheetData);
+      const summaryWorksheet = XLSX.utils.json_to_sheet(summarySheetData);
+      XLSX.utils.book_append_sheet(workbook, summaryWorksheet, "Сводка");
+      XLSX.utils.book_append_sheet(workbook, detailsWorksheet, "Детализация");
+
+      const fileNameSafeTeacher = selectedTeacher.name.replace(/[^\w\u0400-\u04FF.-]+/g, "_");
+      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+      XLSX.writeFile(workbook, `replacement-stats-${fileNameSafeTeacher}-${timestamp}.xlsx`);
+    };
+    const handleSubjectTeacherAssign = (
+      subjectId: number,
+      subgroupKey: "subgroup1TeacherId" | "subgroup2TeacherId",
+      teacherId: number | null
+    ) => {
+      setSubjectAssignmentsMessage(null);
+      setSubjectAssignmentsDirty(true);
+      setSubjectTeacherAssignments((prev) => ({
+        ...prev,
+        [subjectId]: {
+          subgroup1TeacherId: prev[subjectId]?.subgroup1TeacherId ?? null,
+          subgroup2TeacherId: prev[subjectId]?.subgroup2TeacherId ?? null,
+          [subgroupKey]: teacherId
+        }
+      }));
+    };
+    const handleSaveSubjectAssignments = () => {
+      try {
+        setSubjectAssignmentsSaving(true);
+        setSubjectAssignmentsMessage(null);
+        localStorage.setItem(
+          SUBJECT_TEACHER_ASSIGNMENTS_KEY,
+          JSON.stringify(subjectTeacherAssignments)
+        );
+        setSavedSubjectTeacherAssignments(subjectTeacherAssignments);
+        setSubjectAssignmentsDirty(false);
+        setSubjectAssignmentsMessage("Изменения сохранены");
+      } catch (error) {
+        console.error(error);
+        setSubjectAssignmentsMessage("Не удалось сохранить изменения");
+      } finally {
+        setSubjectAssignmentsSaving(false);
+      }
+    };
+    const handleCancelSubjectAssignments = () => {
+      setSubjectTeacherAssignments(savedSubjectTeacherAssignments);
+      setSubjectAssignmentsDirty(false);
+      setSubjectAssignmentsMessage("Изменения отменены");
+    };
 
     const gridTemplateColumns = "150px repeat(7, 220px)";
 
@@ -697,7 +1448,9 @@ const App: React.FC = () => {
                 >
                   <span className="font-medium">Группы</span>
                   <span className="text-[11px] opacity-80">
-                    {groupsList.length > 0 ? `${groupsList.length} групп` : "нет групп"}
+                    {specialtiesData.length > 0
+                      ? `${specialtiesData.length} групп`
+                      : "нет групп"}
                   </span>
                 </button>
                 <button
@@ -749,9 +1502,15 @@ const App: React.FC = () => {
                           <div className="flex-1">
                             <div className="text-xs font-medium truncate">{t.name}</div>
                             <div className="text-[10px] opacity-80 truncate">
-                              {t.subjectName
-                                ? `Предмет: ${t.subjectName}`
-                                : "Предмет: не указан"}
+                              {(() => {
+                                const inferredSubjectName = t.id
+                                  ? subjectsById.get(inferredSubjectIdByTeacher.get(t.id) ?? -1)
+                                  : undefined;
+                                const displaySubjectName = t.subjectName ?? inferredSubjectName;
+                                return displaySubjectName
+                                  ? `Предмет: ${displaySubjectName}`
+                                  : "Предмет: не указан";
+                              })()}
                             </div>
                             <div className="text-[10px] opacity-80 truncate">
                               {t.roomNumber ? `Кабинет: ${t.roomNumber}` : "Кабинет не указан"}
@@ -830,92 +1589,54 @@ const App: React.FC = () => {
                 {sidebarSection === "groups" && (
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs uppercase text-slate-400">Группы</span>
+                      <span className="text-xs uppercase text-slate-400">Группы по специальностям</span>
                     </div>
-                    <div className="space-y-1 max-h-52 overflow-auto pr-1">
-                      {groupsList.length === 0 && (
-                        <div className="text-xs text-slate-400">
-                          Пока нет групп. Добавьте тестовую группу ОСП(9).
-                        </div>
-                      )}
-                      {groupsList.map((g, groupIdx) => (
-                        <div
-                          key={g.id}
-                          className={`flex items-center justify-between rounded-md px-2 py-1 cursor-pointer border ${
-                            selectedGroupIds.includes(g.id) || selectedGroupId === g.id
-                              ? "bg-slate-900 text-white border-slate-900"
-                              : "bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100"
-                          }`}
-                          onClick={(e) => handleGroupCardSelect(e, g, groupIdx, groupsList)}
-                        >
-                          <div className="flex-1 min-w-0">
-                            <div className="text-xs font-medium truncate">{g.name}</div>
-                            <div className="text-[10px] opacity-80 truncate">Карточка группы</div>
-                          </div>
-                        </div>
-                      ))}
+                    <div className="space-y-1 max-h-[52vh] overflow-auto pr-1">
+                      {specialtiesData.map((row, rowIdx) => {
+                        const isSelected = selectedSpecialtyIndex === rowIdx;
+                        return (
+                          <button
+                            key={`${row.code}-${row.title}-${rowIdx}`}
+                            type="button"
+                            className={`w-full text-left rounded-md border px-2 py-2 ${
+                              isSelected
+                                ? "bg-slate-900 text-white border-slate-900"
+                                : "bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100"
+                            }`}
+                            onClick={() => setSelectedSpecialtyIndex(rowIdx)}
+                          >
+                            <div className="text-[11px] opacity-80">Код: {row.code}</div>
+                            <div className="text-xs font-medium leading-snug">{row.title}</div>
+                          </button>
+                        );
+                      })}
                     </div>
                     <div className="pt-2 border-t border-slate-100 space-y-2">
                       <div className="text-[11px] text-slate-500">
-                        Выбрано групп: <span className="font-semibold">{selectedGroupIds.length}</span>
+                        Карточек по таблице:{" "}
+                        <span className="font-semibold">{specialtiesData.length}</span>
                       </div>
-                      <button
-                        type="button"
-                        className="w-full py-1.5 rounded-md bg-slate-900 text-white text-xs font-medium hover:bg-slate-800"
-                        onClick={() => setIsGroupModalOpen(true)}
-                      >
-                        Добавить группу
-                      </button>
-                      <button
-                        type="button"
-                        className="w-full py-1.5 rounded-md border border-slate-300 text-slate-700 text-xs font-medium hover:bg-slate-50 disabled:opacity-50"
-                        disabled={selectedGroupIds.length !== 1}
-                        onClick={() => {
-                          if (selectedGroupIds.length !== 1) return;
-                          const targetId = selectedGroupIds[0];
-                          const target = groupsList.find((g) => g.id === targetId);
-                          if (!target) return;
-                          setGroupEditModalName(target.name);
-                          setIsGroupEditModalOpen(true);
-                        }}
-                      >
-                        Редактировать выбранную группу
-                      </button>
-                      <button
-                        type="button"
-                        className="w-full py-1.5 rounded-md border border-red-300 text-red-600 text-xs font-medium hover:bg-red-50 disabled:opacity-50"
-                        disabled={selectedGroupIds.length === 0}
-                        onClick={async () => {
-                          if (selectedGroupIds.length === 0) return;
-                          if (
-                            !window.confirm(
-                              `Удалить выбранные группы (${selectedGroupIds.length})?`
-                            )
-                          ) {
-                            return;
-                          }
-                          try {
-                            for (const id of selectedGroupIds) {
-                              await axios.delete(`/api/groups/${id}`);
-                            }
-                            const groupsRes = await axios.get<Group[]>("/api/groups");
-                            setGroups(groupsRes.data);
-                            const nextGroup = groupsRes.data[0] ?? null;
-                            setSelectedGroupId(nextGroup?.id ?? null);
-                            setSelectedGroupIds([]);
-                            await loadSchedule();
-                          } catch (err: any) {
-                            console.error(err);
-                            alert(
-                              err.response?.data?.details ||
-                                err.response?.data?.message ||
-                                "Не удалось удалить выбранные группы"
-                            );
-                          }
-                        }}
-                      >
-                        Удалить выбранные группы
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          className="flex-1 py-1.5 rounded-md bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 disabled:opacity-60"
+                          disabled={!specialtiesDirty || specialtiesSaving}
+                          onClick={handleSaveSpecialties}
+                        >
+                          {specialtiesSaving ? "Сохранение..." : "Сохранить изменения"}
+                        </button>
+                        <button
+                          type="button"
+                          className="flex-1 py-1.5 rounded-md border border-slate-300 text-slate-700 text-xs font-medium hover:bg-slate-50 disabled:opacity-60"
+                          disabled={!specialtiesDirty || specialtiesSaving}
+                          onClick={handleCancelSpecialtiesEdit}
+                        >
+                          Отменить
+                        </button>
+                      </div>
+                      {specialtiesMessage && (
+                        <div className="text-[11px] text-slate-500">{specialtiesMessage}</div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -949,8 +1670,8 @@ const App: React.FC = () => {
                           onClick={(e) => handleSubjectCardSelect(e, s.id, subjectIdx)}
                         >
                           <div className="flex-1 min-w-0">
-                            <div className="text-xs font-medium truncate">{s.name}</div>
                             <div className="text-[10px] opacity-80 truncate">Карточка предмета</div>
+                            <div className="text-xs font-medium truncate">{s.name}</div>
                           </div>
                         </div>
                       ))}
@@ -960,6 +1681,27 @@ const App: React.FC = () => {
                         Выбрано предметов:{" "}
                         <span className="font-semibold">{selectedSubjectIds.length}</span>
                       </div>
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          className="flex-1 py-1.5 rounded-md bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 disabled:opacity-60"
+                          disabled={!subjectAssignmentsDirty || subjectAssignmentsSaving}
+                          onClick={handleSaveSubjectAssignments}
+                        >
+                          {subjectAssignmentsSaving ? "Сохранение..." : "Сохранить изменения"}
+                        </button>
+                        <button
+                          type="button"
+                          className="flex-1 py-1.5 rounded-md border border-slate-300 text-slate-700 text-xs font-medium hover:bg-slate-50 disabled:opacity-60"
+                          disabled={!subjectAssignmentsDirty || subjectAssignmentsSaving}
+                          onClick={handleCancelSubjectAssignments}
+                        >
+                          Отменить
+                        </button>
+                      </div>
+                      {subjectAssignmentsMessage && (
+                        <div className="text-[11px] text-slate-500">{subjectAssignmentsMessage}</div>
+                      )}
                       <div className="text-xs uppercase text-slate-400">Добавить предмет</div>
                       <input
                         type="text"
@@ -1039,6 +1781,26 @@ const App: React.FC = () => {
                             for (const id of selectedSubjectIds) {
                               await axios.delete(`/api/subjects/${id}`);
                             }
+                            setSubjectTeacherAssignments((prev) => {
+                              const next = { ...prev };
+                              for (const id of selectedSubjectIds) {
+                                delete next[id];
+                              }
+                              return next;
+                            });
+                            setSavedSubjectTeacherAssignments((prev) => {
+                              const next = { ...prev };
+                              for (const id of selectedSubjectIds) {
+                                delete next[id];
+                              }
+                              localStorage.setItem(
+                                SUBJECT_TEACHER_ASSIGNMENTS_KEY,
+                                JSON.stringify(next)
+                              );
+                              return next;
+                            });
+                            setSubjectAssignmentsDirty(false);
+                            setSubjectAssignmentsMessage(null);
                             await loadSubjects();
                             await loadSchedule();
                             setSelectedSubjectIds([]);
@@ -1202,6 +1964,35 @@ const App: React.FC = () => {
                         }
                       }}
                     />
+                    <div className="mt-2 text-sm text-slate-500">Замена преподавателя:</div>
+                    <select
+                      className="mt-1 w-full max-w-xs border rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                      value={teacherReplacementDefaults[selectedTeacher.id] ?? ""}
+                      onChange={(e) => {
+                        const nextReplacementTeacherId =
+                          e.target.value === "" ? null : Number(e.target.value);
+                        setTeacherReplacementDefaults((prev) => {
+                          const next = {
+                            ...prev,
+                            [selectedTeacher.id]: nextReplacementTeacherId
+                          };
+                          localStorage.setItem(
+                            TEACHER_REPLACEMENT_DEFAULTS_KEY,
+                            JSON.stringify(next)
+                          );
+                          return next;
+                        });
+                      }}
+                    >
+                      <option value="">не выбран</option>
+                      {sortedTeachersList
+                        .filter((t) => t.id !== selectedTeacher.id)
+                        .map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.name}
+                          </option>
+                        ))}
+                    </select>
                     <div className="mt-2 flex flex-wrap gap-1">
                       {selectedTeacher.subjectName && (
                         <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-2 py-0.5 text-[11px]">
@@ -1222,8 +2013,24 @@ const App: React.FC = () => {
                   <div className="text-right">
                     <div className="text-xs uppercase text-slate-400">Общая нагрузка</div>
                     <div className="text-xl font-semibold text-indigo-600">
-                      {Number(selectedTeacher.workloadHours ?? 0).toFixed(1)} ч
+                      {adjustedTeacherWorkloadHours.toFixed(1)} ч
                     </div>
+                    {replacementHoursDeductedFromSelectedTeacher > 0 && (
+                      <div className="mt-1 text-[10px] text-slate-400">
+                        Списано за замещения: -{replacementHoursDeductedFromSelectedTeacher.toFixed(1)} ч
+                      </div>
+                    )}
+                    <div className="mt-3 text-xs uppercase text-slate-400">Учет часов замещения</div>
+                    <div className="text-xl font-semibold text-emerald-600">
+                      {replacementHoursTotal.toFixed(1)} ч
+                    </div>
+                    <button
+                      type="button"
+                      className="mt-2 w-full rounded-md border border-slate-300 px-2 py-1 text-xs text-slate-700 hover:bg-slate-50"
+                      onClick={() => setIsReplacementStatsModalOpen(true)}
+                    >
+                      Статистика
+                    </button>
                     {selectedTeacherId === teacher.id && (
                       <div className="mt-1 text-[10px] text-slate-400">
                         Это вы. Нагрузка обновляется по расписанию.
@@ -1233,21 +2040,175 @@ const App: React.FC = () => {
                 </div>
               )}
 
-              {sidebarSection === "groups" && selectedGroup && (
-                <div className="mb-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
-                  <div className="flex-1">
-                    <div className="text-xs uppercase text-slate-400 mb-1">
-                      Карточка группы
+              {sidebarSection === "groups" && selectedSpecialty && (
+                <>
+                  <div className="mb-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <div className="flex-1">
+                      <div className="text-xs uppercase text-slate-400 mb-1">
+                        Карточка специальности
+                      </div>
+                      <label className="block text-[11px] text-slate-500 mb-1">Код</label>
+                      <input
+                        type="text"
+                        className="w-full max-w-xs border rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 mb-2"
+                        value={selectedSpecialty.code}
+                        onChange={(e) => updateSelectedSpecialtyField("code", e.target.value)}
+                      />
+                      <label className="block text-[11px] text-slate-500 mb-1">
+                        Специальность, профессия
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full max-w-md border rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                        value={selectedSpecialty.title}
+                        onChange={(e) => updateSelectedSpecialtyField("title", e.target.value)}
+                      />
+                      <div className="mt-3 flex gap-2">
+                        <button
+                          type="button"
+                          className="py-1.5 px-3 rounded-md bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 disabled:opacity-60"
+                          disabled={!specialtiesDirty || specialtiesSaving}
+                          onClick={handleSaveSpecialties}
+                        >
+                          {specialtiesSaving ? "Сохранение..." : "Сохранить изменения"}
+                        </button>
+                        <button
+                          type="button"
+                          className="py-1.5 px-3 rounded-md border border-slate-300 text-slate-700 text-xs font-medium hover:bg-slate-50 disabled:opacity-60"
+                          disabled={!specialtiesDirty || specialtiesSaving}
+                          onClick={handleCancelSpecialtiesEdit}
+                        >
+                          Отменить
+                        </button>
+                      </div>
                     </div>
-                    <label className="block text-[11px] text-slate-500 mb-1">
-                      Название группы
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full max-w-xs border rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-                      value={selectedGroup.name}
-                      disabled
-                    />
+                  </div>
+                  <div className="w-full max-w-full overflow-auto pb-2 max-h-[62vh] rounded-md border border-slate-200">
+                    <table className="w-full min-w-[700px] text-[12px] border-collapse">
+                      <thead className="sticky top-0 z-10 bg-slate-100 text-slate-700">
+                        <tr>
+                          <th className="border border-slate-300 px-2 py-1 text-left">1 курс</th>
+                          <th className="border border-slate-300 px-2 py-1 text-left">2 курс</th>
+                          <th className="border border-slate-300 px-2 py-1 text-left">3 курс</th>
+                          <th className="border border-slate-300 px-2 py-1 text-left">4 курс</th>
+                          <th className="border border-slate-300 px-2 py-1 text-left">5 курс</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-white text-slate-800">
+                          <td className="border border-slate-300 px-2 py-1 align-top">
+                            <input
+                              type="text"
+                              className="w-full border rounded px-1 py-0.5 text-[12px]"
+                              value={selectedSpecialty.course1}
+                              onChange={(e) =>
+                                updateSelectedSpecialtyField("course1", e.target.value)
+                              }
+                            />
+                          </td>
+                          <td className="border border-slate-300 px-2 py-1 align-top">
+                            <input
+                              type="text"
+                              className="w-full border rounded px-1 py-0.5 text-[12px]"
+                              value={selectedSpecialty.course2}
+                              onChange={(e) =>
+                                updateSelectedSpecialtyField("course2", e.target.value)
+                              }
+                            />
+                          </td>
+                          <td className="border border-slate-300 px-2 py-1 align-top">
+                            <input
+                              type="text"
+                              className="w-full border rounded px-1 py-0.5 text-[12px]"
+                              value={selectedSpecialty.course3}
+                              onChange={(e) =>
+                                updateSelectedSpecialtyField("course3", e.target.value)
+                              }
+                            />
+                          </td>
+                          <td className="border border-slate-300 px-2 py-1 align-top">
+                            <input
+                              type="text"
+                              className="w-full border rounded px-1 py-0.5 text-[12px]"
+                              value={selectedSpecialty.course4}
+                              onChange={(e) =>
+                                updateSelectedSpecialtyField("course4", e.target.value)
+                              }
+                            />
+                          </td>
+                          <td className="border border-slate-300 px-2 py-1 align-top">
+                            <input
+                              type="text"
+                              className="w-full border rounded px-1 py-0.5 text-[12px]"
+                              value={selectedSpecialty.course5}
+                              onChange={(e) =>
+                                updateSelectedSpecialtyField("course5", e.target.value)
+                              }
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              )}
+              {sidebarSection === "subjects" && selectedSubjectCard && (
+                <div className="mb-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <div className="text-xs uppercase text-slate-400 mb-1">Карточка предмета</div>
+                  <label className="block text-[11px] text-slate-500 mb-1">Название предмета</label>
+                  <input
+                    type="text"
+                    className="w-full max-w-md border rounded-md px-2 py-1 text-sm bg-white"
+                    value={selectedSubjectCard.name}
+                    disabled
+                  />
+                  <div className="mt-4 rounded-md border border-slate-200 bg-white p-3">
+                    <div className="grid grid-cols-[130px_1fr] gap-2 text-xs font-medium text-slate-600 mb-2">
+                      <div>Подгруппа</div>
+                      <div>Преподаватель</div>
+                    </div>
+                    <div className="grid grid-cols-[130px_1fr] gap-2 items-center mb-2">
+                      <div className="text-xs text-slate-700">Подгруппа 1</div>
+                      <select
+                        className="border rounded-md px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                        value={selectedSubjectAssignment.subgroup1TeacherId ?? ""}
+                        onChange={(e) =>
+                          handleSubjectTeacherAssign(
+                            selectedSubjectCard.id,
+                            "subgroup1TeacherId",
+                            e.target.value === "" ? null : Number(e.target.value)
+                          )
+                        }
+                      >
+                        <option value="">Не назначен</option>
+                        {sortedTeachersList.map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="grid grid-cols-[130px_1fr] gap-2 items-center">
+                      <div className="text-xs text-slate-700">Подгруппа 2</div>
+                      <select
+                        className="border rounded-md px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                        value={selectedSubjectAssignment.subgroup2TeacherId ?? ""}
+                        onChange={(e) =>
+                          handleSubjectTeacherAssign(
+                            selectedSubjectCard.id,
+                            "subgroup2TeacherId",
+                            e.target.value === "" ? null : Number(e.target.value)
+                          )
+                        }
+                      >
+                        <option value="">Не назначен</option>
+                        {sortedTeachersList.map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
               )}
@@ -1300,7 +2261,33 @@ const App: React.FC = () => {
                       {formatDateRu(new Date(weekStart.getTime() + 6 * 24 * 60 * 60 * 1000))}
                     </div>
                   </div>
-
+                  <div className="mb-3 text-xs text-slate-500">
+                    Выбрана группа:{" "}
+                    <span className="font-semibold">
+                      {selectedScheduleGroup ? selectedScheduleGroup.name : "не выбрана"}
+                    </span>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-52 shrink-0 rounded-md border border-slate-200 bg-slate-50 p-2">
+                      <div className="text-xs font-semibold text-slate-600 mb-2">Выбрать группу</div>
+                      <div className="space-y-1 max-h-[62vh] overflow-auto pr-1">
+                        {groupsList.map((group) => (
+                          <button
+                            key={group.id}
+                            type="button"
+                            className={`w-full text-left rounded border px-2 py-1.5 text-xs ${
+                              selectedScheduleGroup?.id === group.id
+                                ? "bg-slate-900 text-white border-slate-900"
+                                : "bg-white text-slate-700 border-slate-200 hover:bg-slate-100"
+                            }`}
+                            onClick={() => setScheduleSelectedGroupId(group.id)}
+                          >
+                            {group.name}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
                     <div className="w-full max-w-full overflow-auto pb-2 max-h-[68vh] rounded-md border border-slate-200">
                     <div className="min-w-[1690px] min-h-max pr-2">
                       <div
@@ -1320,7 +2307,7 @@ const App: React.FC = () => {
                       </div>
 
                       <div className="mt-2 space-y-2">
-                        {groupsList.map((group) => (
+                        {scheduleGroupsToRender.map((group) => (
                           <div
                             key={group.id}
                             className="grid items-stretch"
@@ -1353,11 +2340,20 @@ const App: React.FC = () => {
                                         draft?.subjectId ?? existingItem?.subject_id ?? null;
                                       const selectedTeacherId =
                                         draft?.teacherId ?? existingItem?.teacher_id ?? null;
-                                      const selectedSlotTeacher =
-                                        sortedTeachersList.find((t) => t.id === selectedTeacherId) ??
-                                        null;
+                                      const selectedSlotTeacher = selectedTeacherId
+                                        ? teachersById.get(selectedTeacherId) ?? null
+                                        : null;
+                                      const effectiveReplacementTeacherId = getReplacementTeacherIdForSlot(
+                                        key
+                                      );
+                                      const selectedReplacementTeacher = effectiveReplacementTeacherId
+                                        ? teachersById.get(effectiveReplacementTeacherId) ?? null
+                                        : null;
                                       const selectedSlotTeacherRoom =
                                         selectedSlotTeacher?.roomNumber?.trim() || "не указан";
+                                      const displayedRoom =
+                                        selectedReplacementTeacher?.roomNumber?.trim() ||
+                                        selectedSlotTeacherRoom;
 
                                       return (
                                         <div
@@ -1451,8 +2447,42 @@ const App: React.FC = () => {
                                               ))}
                                             </select>
                                           </div>
+                                          <div className="mt-1">
+                                            <select
+                                              className="w-full border border-slate-700 rounded-sm px-1 py-0.5 text-[10px] bg-white text-slate-900"
+                                              value={effectiveReplacementTeacherId ?? ""}
+                                              onChange={(e) => {
+                                                const nextReplacementTeacherId = e.target.value
+                                                  ? Number(e.target.value)
+                                                  : null;
+                                                setReplacementTeacherBySlot((prev) => {
+                                                  const next = {
+                                                    ...prev,
+                                                    [key]: nextReplacementTeacherId
+                                                  };
+                                                  localStorage.setItem(
+                                                    REPLACEMENT_ASSIGNMENTS_KEY,
+                                                    JSON.stringify(next)
+                                                  );
+                                                  return next;
+                                                });
+                                              }}
+                                            >
+                                              <option value="">Замена преподавателя</option>
+                                              {sortedTeachersList
+                                                .filter((t) => t.id !== selectedTeacherId)
+                                                .map((t) => (
+                                                  <option key={t.id} value={t.id}>
+                                                    {t.name}
+                                                  </option>
+                                                ))}
+                                            </select>
+                                          </div>
                                           <div className="mt-1 border border-slate-700 rounded-sm px-1 py-0.5 text-[10px] text-slate-800 bg-slate-50">
-                                            Кабинет: {selectedSlotTeacherRoom}
+                                            Кабинет: {displayedRoom}
+                                            {selectedReplacementTeacher
+                                              ? ` • Замещает: ${selectedReplacementTeacher.name}`
+                                              : ""}
                                           </div>
                                         </div>
                                       );
@@ -1463,13 +2493,15 @@ const App: React.FC = () => {
                             })}
                           </div>
                         ))}
-                        {groupsList.length === 0 && (
+                        {scheduleGroupsToRender.length === 0 && (
                           <div className="text-xs text-slate-400">
                             Нет групп для отображения. Добавьте группу во вкладке «Группы».
                           </div>
                         )}
                       </div>
                     </div>
+                  </div>
+                  </div>
                   </div>
 
                   {scheduleError && (
@@ -1626,6 +2658,93 @@ const App: React.FC = () => {
                       >
                         Сохранить
                       </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {isReplacementStatsModalOpen && (
+                <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-30">
+                  <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-5 space-y-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h2 className="text-lg font-semibold text-slate-800">Статистика замещений</h2>
+                        <p className="text-xs text-slate-500 mt-1">
+                          По преподавателю: {selectedTeacher?.name}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          className="px-3 py-1.5 rounded-md border border-emerald-300 text-emerald-700 text-sm hover:bg-emerald-50"
+                          onClick={handleExportReplacementStatsXlsx}
+                        >
+                          Экспорт XLSX
+                        </button>
+                        <button
+                          type="button"
+                          className="px-3 py-1.5 rounded-md border border-emerald-300 text-emerald-700 text-sm hover:bg-emerald-50"
+                          onClick={handleExportReplacementStatsCsv}
+                        >
+                          Экспорт CSV
+                        </button>
+                        <button
+                          type="button"
+                          className="px-3 py-1.5 rounded-md border border-slate-300 text-slate-600 text-sm hover:bg-slate-50"
+                          onClick={() => setIsReplacementStatsModalOpen(false)}
+                        >
+                          Закрыть
+                        </button>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                      <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
+                        <div className="text-[11px] uppercase text-slate-400">Сколько часов замещения</div>
+                        <div className="text-xl font-semibold text-emerald-600 mt-1">
+                          {replacementHoursTotal.toFixed(1)} ч
+                        </div>
+                      </div>
+                      <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
+                        <div className="text-[11px] uppercase text-slate-400">У какой группы замещение</div>
+                        <div className="text-xs text-slate-700 mt-1">
+                          {replacementGroups.length > 0 ? replacementGroups.join(", ") : "Нет данных"}
+                        </div>
+                      </div>
+                      <div className="rounded-md border border-slate-200 bg-slate-50 p-3">
+                        <div className="text-[11px] uppercase text-slate-400">По какому предмету замещение</div>
+                        <div className="text-xs text-slate-700 mt-1">
+                          {replacementSubjects.length > 0
+                            ? replacementSubjects.join(", ")
+                            : "Нет данных"}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-md border border-slate-200 overflow-hidden">
+                      <div className="grid grid-cols-[120px_80px_1fr_1fr_1fr] bg-slate-100 text-[11px] text-slate-700 font-medium">
+                        <div className="px-2 py-1 border-r border-slate-200">Дата</div>
+                        <div className="px-2 py-1 border-r border-slate-200">Кол-во пар</div>
+                        <div className="px-2 py-1 border-r border-slate-200">Группа</div>
+                        <div className="px-2 py-1 border-r border-slate-200">Предмет</div>
+                        <div className="px-2 py-1">Кого замещает</div>
+                      </div>
+                      <div className="max-h-56 overflow-auto text-xs">
+                        {replacementStatsSummaryRows.length === 0 && (
+                          <div className="px-3 py-3 text-slate-400">Замещения не найдены.</div>
+                        )}
+                        {replacementStatsSummaryRows.map((entry) => (
+                          <div
+                            key={entry.summaryKey}
+                            className="grid grid-cols-[120px_80px_1fr_1fr_1fr] border-t border-slate-200"
+                          >
+                            <div className="px-2 py-1 border-r border-slate-200">{entry.date}</div>
+                            <div className="px-2 py-1 border-r border-slate-200">{entry.pairCount}</div>
+                            <div className="px-2 py-1 border-r border-slate-200">{entry.groupName}</div>
+                            <div className="px-2 py-1 border-r border-slate-200">
+                              {entry.subjectName}
+                            </div>
+                            <div className="px-2 py-1">{entry.baseTeacherName}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
